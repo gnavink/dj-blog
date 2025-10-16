@@ -1,0 +1,132 @@
+Dj_Personal_Website Github Link:    https://github.com/gnavink/Django_Personal_Website
+
+1) SETTING UP THE CODEBASE
+   =======================
+
+a) Create & Activate Virtual Environment:
+      
+    i)  Create a folder blog . This folder is called the project root project folder
+        Open Up PowerShell and cd into the project root project folder
+	      cd <path of blog>
+        
+
+    ii)  python -m venv  .venv
+	       Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+	       .\.venv\Scripts\activate.ps1
+
+b) Install Django & Upgrade pip:
+	python -m pip  install django~=5.0.0
+	python -m pip install --upgrade pip
+
+c) Create Django Project:
+	# There is a single dot after django_project
+	django-admin  startproject django_project . 
+	python  manage.py  runserver    
+		
+
+2) CREATING APP & INFORMING DJANGO ABOUT THE APP:
+   =============================================
+
+a)  # blog is the name of the app
+	python  manage.py  startapp blog
+
+b)  # Inform Django about the pages app  
+	Modify django_project/settings.py as below:
+	  INSTALLED_APPS = [
+	    'django.contrib.admin',
+	     ...
+	     ...
+	    'blog',
+	  ]
+
+  python manage.py migrate
+  python manage.py runserver
+
+c)  # Inform Django where to look for routes in the pages app:
+	Copy and paste the contents in django_project/urls.py 
+
+
+  BUILDING BLOG WEB APPLICATION:
+==================================
+3) Building the model:
+    a)   Modify blog/models.py without author pk / __str__()
+            python manage.py makemigrations blog
+            python manage.py migrate
+
+    b) Modify blog/models.py to reflect Foreign-Key relationship
+          python manage.py makemigrations blog
+          python manage.py migrate
+
+4) Create superuser
+    python manage.py createsuperuser
+    gnk / Password123 / test@email.com
+
+    127.0.0.1:8000/admin/ 
+    Login  
+
+5) Making the admin app know about the model
+   a) Modify blog/admin.py - Posts will be seen
+    Modify model to have __str__() to see the title . No need
+    to run migrate
+
+   b) Modify blog/admin.py to see all the fields in the model
+
+6) Create views:
+       Create blog/views.py from github
+
+7) Create URLs:
+       Create blog/urls.py from github
+       Modify djamgo_project/urls.py 
+
+8) Create templates folder
+   Modify djamgo_project/settings.py  
+
+   TEMPLATES = [
+    {
+         ...
+        'DIRS': [BASE_DIR / 'templates'],
+    },
+  ]
+
+9) Create html files
+     Add base.html, home.html
+
+10) Run Django Server     
+        python manage.py runserver
+
+11) Add STATIC Files:
+      a)   Create static folder
+           Modify djamgo_project/settings.py
+               STATICFILES_DIRS = [BASE_DIR / "static"]
+      b)    Create css folder inside static
+              Add css/base.css only the header h1
+
+Create a folder templates inside root project folder using File Explorer
+    Inside the templates folder create files home1.html, home2.html, about1.html, about2.html 
+    Copy their contents from templates folder in the github link
+
+
+	  
+
+c)  # Configure Rule database inside pages app:
+	Create a new urls.py file inside pages directory. Copy and paste the contents of pages/urls.py from github
+
+d)  Create views for the routes. Copy and paste the contents of pages/urls.py
+
+
+e)  Testing the Pages App:
+	i)  Testing the Home page with Hard coded values
+        ii) Testing the About page with Hard coded values
+        iii) Testing home1.html , about1.html using simple html pages
+        iv) Modify about page view to use about2.html passing context to the template engine
+        v) Modify home page view to use home2.html passing context to the template engine
+        vi) Use Class based Simple About Page View 
+               - Edit views.py : Modify about page view function to use class based view. Use about1.html
+               - Edit pages/urls.py to make about page view function as class based view
+        vii) Passing context to template engine in about view as class based views:
+                Edit views.py : Modify about page view function to use class based view. Use about3.html
+        viii) Inheritance:
+                 Add base.html to templates folder
+                 Modify home page view to use inheritance from base.html . Use home3.html
+                 Modify about page view to use inheritance from base.html 
+                                
