@@ -1,0 +1,35 @@
+python manage.py startapp blog
+ python manage.py migrate
+python manage.py runserver
+python manage.py makemigrations blog
+python manage migrate
+python manage.py makemigrations blog
+
+python manage.py createsuperuser
+gnk / Password123 / test@email.com
+
+127.0.0.1:8000/admin/ # No Post model
+
+Modify blog/admin.py
+
+127.0.0.1:8000/admin/ - Create 2 Posts
+Modify blog/admin.py - Posts will be seen
+
+Modify 
+  - blog: urls.py, views.py
+  - django/urls.py
+
+mkdir templates
+settings.py
+base.html, home.html
+
+mkdir static
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
+mkdir static/css
+Create base.css
+Update base.html load static
+
+  
+
+
