@@ -101,6 +101,14 @@ c)  # Inform Django where to look for routes in the pages app:
       b)    Create css folder inside static
               Add css/base.css only the header h1
 
+12) Modify base.html to add css/base.css
+
+13) Modify 
+      - base.css to add everything. 
+      - base.html to add fonts
+      Run Django Server     
+        python manage.py runserver
+
 Create a folder templates inside root project folder using File Explorer
     Inside the templates folder create files home1.html, home2.html, about1.html, about2.html 
     Copy their contents from templates folder in the github link
